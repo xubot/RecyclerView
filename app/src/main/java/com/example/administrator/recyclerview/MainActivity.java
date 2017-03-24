@@ -18,13 +18,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView= (RecyclerView) findViewById(R.id.recycler);
         //设置layoutManager
+        //setLayoutManager 设置布局管理
+        //StaggeredGridLayoutManager   错乱的网格布局管理
+        //参数一： 要显示的行数和列数
+        //参数二：是设置错乱布局管理的横向还是列向
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-        //设置adapter
+        //设置初始值
         initData();
+        //设置适配器
         MasonryAdapter adapter=new MasonryAdapter(productList);
         recyclerView.setAdapter(adapter);
         //设置item之间的间隔
+        //得到条目的装饰对象
         SpacesItemDecoration decoration=new SpacesItemDecoration(16);
+        //给控件添加条目装饰
         recyclerView.addItemDecoration(decoration);
     }
     private void initData() {
